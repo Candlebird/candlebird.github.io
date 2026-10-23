@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Candlebird</title>
+  <meta name="description" content="Projects by Candlebird hosted on GitHub Pages.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕯️</text></svg>">
+  <style>
+    :root {
+      --bg: #f7f5f2;
+      --card: #ffffff;
+      --text: #1f1d1a;
+      --muted: #6b665e;
+      --border: #e4e0d9;
+      --accent: #c2410c;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #161514;
+        --card: #201f1d;
+        --text: #eeebe6;
+        --muted: #a39d93;
+        --border: #34322e;
+        --accent: #fb923c;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.5;
+    }
+    main { max-width: 720px; margin: 0 auto; padding: 56px 16px; }
+    h1 { margin: 0 0 4px; font-size: 2rem; letter-spacing: -0.01em; }
+    .tagline { margin: 0 0 32px; color: var(--muted); }
+    ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+    a.card {
+      display: block;
+      padding: 18px 20px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: inherit;
+      text-decoration: none;
+      transition: border-color .15s, transform .15s;
+    }
+    a.card:hover, a.card:focus-visible { border-color: var(--accent); transform: translateY(-1px); }
+    .name { font-weight: 600; font-size: 1.1rem; }
+    .name::after { content: " →"; color: var(--accent); }
+    .desc { margin-top: 2px; color: var(--muted); font-size: .95rem; }
+    footer { margin-top: 40px; color: var(--muted); font-size: .85rem; }
+    footer a { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Candlebird</h1>
+    <p class="tagline">Small projects, hosted on GitHub Pages.</p>
+    <ul>
+      <li>
+        <a class="card" href="https://candlebird.github.io/table-layout/">
+          <div class="name">Table Layout</div>
+          <div class="desc">Wedding seating chart planner.</div>
+        </a>
+      </li>
+      <li>
+        <a class="card" href="https://candlebird.github.io/crusade-dataslate/">
+          <div class="name">Crusade Dataslate</div>
+          <div class="desc">Crusade tracker for One Page Rules Grimdark Future.</div>
+        </a>
+      </li>
+      <li>
+        <a class="card" href="https://candlebird.github.io/claude-usage-tracker/">
+          <div class="name">Claude Usage Tracker</div>
+          <div class="desc">Claude Code usage and plan-limit dashboard.</div>
+        </a>
+      </li>
+    </ul>
+    <footer><a href="https://github.com/Candlebird">github.com/Candlebird</a></footer>
+  </main>
+</body>
+</html>
