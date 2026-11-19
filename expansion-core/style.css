@@ -64,7 +64,31 @@ a.chip:hover { background: var(--bg); color: var(--accent); }
 .t-weapon { background: var(--c-weapon); }
 .t-armor { background: var(--c-armor); }
 .t-consumable { background: var(--c-consumable); }
-.rsec { margin-top: 24px; }
+.rsec { margin-top: 18px; }
+.rsec > summary h2 { display: inline; font-size: 1.25rem; }
+summary { cursor: pointer; list-style: none; }
+summary::-webkit-details-marker { display: none; }
+details > summary { position: relative; padding-right: 26px; }
+details > summary::after { content: ""; position: absolute; right: 4px; top: 50%; width: 8px; height: 8px; margin-top: -6px;
+  border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted); transform: rotate(45deg); transition: transform .15s; }
+details[open] > summary::after { transform: rotate(-135deg); margin-top: -2px; }
+summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+.item h2 { margin: 0; font-size: 1.1rem; }
+.item header p { margin: 2px 0 0; }
+.sub { margin-top: 12px; border-top: 1px solid var(--border); padding-top: 10px; }
+.sub > summary { font-weight: 600; font-size: .92rem; }
+.sub > ul { margin-top: 8px; }
+.rlist { display: grid; gap: 8px; margin-top: 8px; }
+.recipe { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 8px 12px; }
+.recipe > summary { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; min-height: 40px; }
+.rfacts { font-size: .85rem; }
+.recipe .more { display: inline-block; margin: 2px 0 4px; font-size: .85rem; color: var(--accent); text-decoration: none; }
+.recipe .needs { display: flex; flex-wrap: wrap; gap: 6px 10px; padding: 8px 0 4px; font-size: .92rem; }
+.bar { display: flex; align-items: center; gap: 8px; margin: 4px 0; }
+.bar .sp { flex: 1; }
+.bar button { font: inherit; font-size: .85rem; padding: 5px 10px; border: 1px solid var(--border); border-radius: 8px;
+  background: var(--card); color: var(--text); cursor: pointer; }
+.bar button:hover { border-color: var(--accent); }
 .scroll { overflow-x: auto; margin-top: 8px; background: var(--card); border: 1px solid var(--border); border-radius: 12px; }
 table { border-collapse: collapse; width: 100%; min-width: 520px; font-size: .92rem; }
 th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: middle; }

@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
       count = document.getElementById("count"), none = document.getElementById("none");
   var rows = page === "items"
     ? Array.prototype.slice.call(document.querySelectorAll(".item"))
-    : Array.prototype.slice.call(document.querySelectorAll("tbody tr"));
+    : Array.prototype.slice.call(document.querySelectorAll(".recipe"));
   var secs = Array.prototype.slice.call(document.querySelectorAll(".rsec"));
   function run() {
     var terms = q.value.toLowerCase().split(/\s+/).filter(Boolean), fv = f.value, shown = 0;
@@ -23,15 +23,28 @@ document.addEventListener("DOMContentLoaded", function () {
       r.hidden = !ok;
       if (ok) shown++;
     });
-    secs.forEach(function (s) { s.hidden = !s.querySelector("tbody tr:not([hidden])"); });
+    secs.forEach(function (s) {
+      s.hidden = !s.querySelector(".recipe:not([hidden])");
+      if (terms.length || fv) s.open = true;
+    });
     count.textContent = shown + (page === "items" ? " items" : " recipes");
     none.hidden = shown !== 0;
   }
+  var all = Array.prototype.slice.call(document.querySelectorAll("details"));
+  document.getElementById("ex").addEventListener("click", function () { all.forEach(function (d) { d.open = true; }); });
+  document.getElementById("co").addEventListener("click", function () {
+    all.forEach(function (d) { if (!d.classList.contains("rsec")) d.open = false; });
+  });
+  function openHash() {
+    if (!location.hash) return;
+    var el = document.getElementById(location.hash.slice(1));
+    if (!el) return;
+    for (var p = el; p; p = p.parentElement) if (p.tagName === "DETAILS") p.open = true;
+    if (el.scrollIntoView) el.scrollIntoView();
+  }
+  window.addEventListener("hashchange", openHash);
   q.addEventListener("input", run);
   f.addEventListener("change", run);
   run();
-  if (location.hash) {
-    var el = document.getElementById(location.hash.slice(1));
-    if (el && el.scrollIntoView) el.scrollIntoView();
-  }
+  openHash();
 });
